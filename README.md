@@ -12,3 +12,9 @@ Dựa trên kết quả unittest thu được,
 	Do đó ta tính được tỉ lệ sai lệch phần mềm:
 	tỉ lệ lỗi = 2 / 0.237 = ~8.44 lỗi/KLOC.
 
+Hướng dẫn sử dụng:
+
+	Clone repo: https://github.com/userquana/TestQLDA
+sử dụng tool pytest:
+	
+	"python -m pytest -v -s"
