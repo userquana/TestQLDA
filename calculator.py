@@ -92,28 +92,7 @@ class Calculator:
         for i in range(4):
             buttons_frame.grid_columnconfigure(i, weight=1)
     
-    def on_hover(self, button, enter):
-        """Hiệu ứng khi di chuột qua nút"""
-        if enter:
-            current_bg = button.cget("bg")
-
-            button.configure(bg=self.lighten_color(current_bg))
-        else:
-
-            text = button.cget("text")
-            for btn_info in [
-                ('C', '#ff6b6b'), ('⌫', '#ff6b6b'), 
-                ('%', '#4ecdc4'), ('÷', '#4ecdc4'), ('√', '#4ecdc4'),
-                ('x²', '#4ecdc4'), ('1/x', '#4ecdc4'), ('×', '#4ecdc4'),
-                ('-', '#4ecdc4'), ('+', '#4ecdc4'), ('=', '#00b894')
-            ]:
-                if btn_info[0] == text:
-                    button.configure(bg=btn_info[1])
-                    return
-            button.configure(bg='#383838')
-    
     def lighten_color(self, color):
-        """Làm sáng màu lên 20%"""
         color_map = {
             '#ff6b6b': '#ff8a8a',
             '#4ecdc4': '#6dddd4',
@@ -204,7 +183,6 @@ class Calculator:
             messagebox.showerror("Lỗi", "Lỗi tính toán!")
     
     def reciprocal(self):
-        """Tính nghịch đảo"""
         try:
             if self.expression:
                 result = 1 / float(self.expression)
@@ -216,7 +194,6 @@ class Calculator:
             messagebox.showerror("Lỗi", "Lỗi tính toán!")
     
     def toggle_sign(self):
-        """Đổi dấu số"""
         try:
             if self.expression and self.expression != "0":
                 if self.expression[0] == '-':
@@ -228,7 +205,7 @@ class Calculator:
             pass
     
     def update_display(self):
-        """Cập nhật màn hình hiển thị"""
+        """Cập nhật màn hình """
         display_expr = self.expression.replace('*', '×').replace('/', '÷')
         self.expression_label.config(text=display_expr)
         
@@ -257,4 +234,4 @@ class Calculator:
 if __name__ == "__main__":
     root = tk.Tk()
     calculator = Calculator(root)
-    root.mainloop()
+    root.mainloop() 
